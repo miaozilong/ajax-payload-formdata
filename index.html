@@ -11,10 +11,12 @@
                 url,
                 type: 'post',
                 // 测试数据
-                data: {
-                    username: 'scott',
-                    password: 'tiger',
-                },
+                data: JSON.stringify({
+                    user: {
+                        username: 'scott',
+                        password: 'tiger',
+                    }
+                }),
                 success: function (response) {
                     console.log(response);
                 }
@@ -22,7 +24,7 @@
             $('button#payload').on('click', () => {
                 $.ajax(Object.assign(settings, {contentType: 'application/json'}))
             })
-            $('button#form-data').on('click', () => {
+            $('button#form-data').on('click', () => {ad
                 $.ajax(Object.assign(settings, {contentType: 'application/x-www-form-urlencoded'}))
             })
         })
